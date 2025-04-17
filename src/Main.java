@@ -9,12 +9,21 @@ public class Main {
 
         // Calling of Merge Sort
         MergeSort ob = new MergeSort();
+
+        System.out.println(Arrays.toString(nums));
         ob.sort(nums, 0, nums.length - 1);
 
-        for (int j : nums) System.out.print(j + " ");
+        System.out.println(Arrays.toString(nums));
         System.out.println();
 
         nums = generateRandomIntArray(11, -1000, 1000);
+        System.out.println(Arrays.toString(nums));
+        ob.sort(nums, 0, nums.length - 1);
+        System.out.println(Arrays.toString(nums));
+
+        System.out.println();
+
+        nums = generateRandomIntArray(23, -5000, 5000);
         System.out.println(Arrays.toString(nums));
         ob.sort(nums, 0, nums.length - 1);
         System.out.println(Arrays.toString(nums));
