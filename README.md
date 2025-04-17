@@ -17,5 +17,5 @@ An example of using recursion to merge sort an array
 
 ## References
 
-* []()
+* [Example Java Merge Sort using Recursion](https://www.geeksforgeeks.org/java-program-for-merge-sort/)
 * 

@@ -1,67 +1,62 @@
 // Java program for Merge Sort
 
-class MergeSort {
+public class MergeSort {
 
-    // Merges two subarrays of a[]
-    void merge(int a[], int l, int m, int r)
-    {
+    // Merges two subarrays of nums[]
+    public void merge(int[] nums, int leftIndex, int middleIndex, int rightIndex) {
 
-        int n1 = m - l + 1;
-        int n2 = r - m;
+        int leftHalfSize = middleIndex - leftIndex + 1;
+        int rightHalfSize = rightIndex - middleIndex;
 
-        int L[] = new int[n1];
-        int R[] = new int[n2];
+        int[] leftHalf = new int[leftHalfSize];
+        int[] rightHalf = new int[rightHalfSize];
 
-        for (int i = 0; i < n1; ++i)
-            L[i] = a[l + i];
+        // create a separate left half of the array
+        for (int i = 0; i < leftHalfSize; ++i)
+            leftHalf[i] = nums[leftIndex + i];
 
-        for (int j = 0; j < n2; ++j)
-            R[j] = a[m + 1 + j];
+        // create a separate right half of the array
+        for (int i = 0; i < rightHalfSize; ++i)
+            rightHalf[i] = nums[middleIndex + 1 + i];
 
         // Merge the temp arrays
-        // Initial indexes of first and second subarrays
-        int i = 0, j = 0;
+        // Initial indexes of left and right subarrays
+        int leftHalfIndex = 0, rightHalfIndex = 0;
 
-        int k = l;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                a[k] = L[i];
-                i++;
-            }
-            else {
-                a[k] = R[j];
-                j++;
-            }
-            k++;
+        int idx = leftIndex;
+        while (leftHalfIndex < leftHalfSize && rightHalfIndex < rightHalfSize) {
+            if (leftHalf[leftHalfIndex] <= rightHalf[rightHalfIndex])
+                nums[idx++] = leftHalf[leftHalfIndex++];
+            else
+                nums[idx++] = rightHalf[rightHalfIndex++];
         }
 
-        while (i < n1) {
-            a[k] = L[i];
-            i++;
-            k++;
+        // if we haven't looked at all of the left half numbers,
+        // grab them now
+        while (leftHalfIndex < leftHalfSize) {
+            nums[idx++] = leftHalf[leftHalfIndex++];
         }
 
-        while (j < n2) {
-            a[k] = R[j];
-            j++;
-            k++;
+        // if we haven't looked at all of the right half numbers,
+        // grab them now
+        while (rightHalfIndex < rightHalfSize) {
+            nums[idx++] = rightHalf[rightHalfIndex++];
         }
     }
 
-    // Main function that sorts a[l..r] using
+    // Main function that sorts nums[leftIndex..rightIndex] using
     // merge()
-    void sort(int a[], int l, int r)
-    {
-        if (l < r) {
+    public void sort(int[] nums, int leftIndex, int rightIndex) {
+        if (leftIndex < rightIndex) {
 
-            int m = (l + r) / 2;
+            int middleIndex = (leftIndex + rightIndex) / 2;
 
             // Sort first and second halves
-            sort(a, l, m);
-            sort(a, m + 1, r);
+            sort(nums, leftIndex, middleIndex);
+            sort(nums, middleIndex + 1, rightIndex);
 
             // Merge the sorted halves
-            merge(a, l, m, r);
+            merge(nums, leftIndex, middleIndex, rightIndex);
         }
     }
 
