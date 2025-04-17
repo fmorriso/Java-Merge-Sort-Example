@@ -13,9 +13,8 @@ An example of using recursion to merge sort an array
 
 | Date       | Description      |
 |:-----------|:-----------------|
-| 2025-04-04 | Initial creation |
+| 2025-04-17 | Initial creation |
 
 ## References
 
 * [Example Java Merge Sort using Recursion](https://www.geeksforgeeks.org/java-program-for-merge-sort/)
-* 
