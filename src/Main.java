@@ -3,30 +3,29 @@ import java.util.Arrays;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
+    private static final MergeSort ob = new MergeSort();
+
     // Driver method
     public static void main(String[] args) {
-        int[] nums = {12, 11, 13, 5, 6, 7};
+        final int NUM_EXAMPLES = 5;
+        for (int i = 1; i <= NUM_EXAMPLES; i++)
+            runExample(i);
+    }
 
-        // Calling of Merge Sort
-        MergeSort ob = new MergeSort();
+    private static void runExample(int i) {
+        int size = RandomNumberUtilities.getRandomIntInRange(5, 20);
+        int min = RandomNumberUtilities.getRandomIntInRange(-1000, 1000);
+        int max = RandomNumberUtilities.getRandomIntInRange(min, 2000);
 
+        System.out.format("%d. size: %d, min: %d, max: %d%n", i, size, min, max);
+
+        int[] nums = generateRandomIntArray(size, min, max);
         System.out.println(Arrays.toString(nums));
         ob.sort(nums, 0, nums.length - 1);
-
         System.out.println(Arrays.toString(nums));
         System.out.println();
 
-        nums = generateRandomIntArray(11, -1000, 1000);
-        System.out.println(Arrays.toString(nums));
-        ob.sort(nums, 0, nums.length - 1);
-        System.out.println(Arrays.toString(nums));
-
-        System.out.println();
-
-        nums = generateRandomIntArray(23, -5000, 5000);
-        System.out.println(Arrays.toString(nums));
-        ob.sort(nums, 0, nums.length - 1);
-        System.out.println(Arrays.toString(nums));
     }
 
     private static int[] generateRandomIntArray(int size, int min, int max) {
