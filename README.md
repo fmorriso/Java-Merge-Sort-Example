@@ -1,6 +1,13 @@
 # Java Merge Sort Example
 An example of using recursion to merge sort an array
 
+## Directions for use
+
+1.  open up file `settings.txt`
+1.  adjust any of the values to suit your needs.
+1.  run the program.
+
+
 ## Tools Used
 
 | Tool     |  Version |
