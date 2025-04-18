@@ -80,9 +80,9 @@ public class Main {
         System.out.format("%d. size: %d, min: %d, max: %d%n", i, size, min, max);
 
         int[] nums = generateRandomIntArray(size, min, max);
-        System.out.println(Arrays.toString(nums));
+        System.out.format("before: %s%n",Arrays.toString(nums));
         ob.sort(nums, 0, nums.length - 1);
-        System.out.println(Arrays.toString(nums));
+        System.out.format("after : %s%n",Arrays.toString(nums));
         System.out.println();
 
     }
