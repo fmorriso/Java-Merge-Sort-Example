@@ -1,8 +1,5 @@
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 
 public class KeyValueSettingsUtilities {
@@ -37,6 +34,7 @@ public class KeyValueSettingsUtilities {
         }
         if(!new File(filename).exists()) {
             String msg = String.format("File %s does not exist", filename);
+            throw new FileNotFoundException(msg);
         }
         if(key == null || key.isEmpty()) {
             throw new Exception("Key is empty or null.");
