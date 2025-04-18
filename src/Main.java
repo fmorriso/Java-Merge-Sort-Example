@@ -8,15 +8,74 @@ public class Main {
 
     // Driver method
     public static void main(String[] args) {
-        final int NUM_EXAMPLES = 5;
-        for (int i = 1; i <= NUM_EXAMPLES; i++)
-            runExample(i);
+        KeyValueSettingsUtilities.setFileName("settings.txt");
+
+        int numExamples = getNumExamples();
+
+        int minSize = getMinSize();
+        int maxSize = getMaxSize();
+
+        int minValue = getMinValue();
+        int maxValue = getMaxValue();
+
+        for (int i = 1; i <= numExamples; i++)
+            runExample(i, minSize, maxSize, minValue, maxValue);
     }
 
-    private static void runExample(int i) {
-        int size = RandomNumberUtilities.getRandomIntInRange(5, 20);
-        int min = RandomNumberUtilities.getRandomIntInRange(-1000, 1000);
-        int max = RandomNumberUtilities.getRandomIntInRange(min, 2000);
+    private static int getMaxValue() {
+        int n;
+        try {
+            n = Integer.parseInt( KeyValueSettingsUtilities.getValue("MAX_VALUE") );
+        } catch (Exception e) {
+            n = 500;
+        }
+        return n;
+    }
+
+    private static int getMinValue() {
+        int n;
+        try {
+            n = Integer.parseInt( KeyValueSettingsUtilities.getValue("MIN_VALUE") );
+        } catch (Exception e) {
+            n = -500;
+        }
+        return n;
+    }
+
+    private static int getMinSize() {
+        int minSize;
+        try {
+            minSize = Integer.parseInt( KeyValueSettingsUtilities.getValue("MIN_SIZE") );
+        } catch (Exception e) {
+            minSize = 5;
+        }
+        return minSize;
+    }
+
+    private static int getMaxSize() {
+        int maxSize;
+        try {
+            maxSize = Integer.parseInt( KeyValueSettingsUtilities.getValue("MAX_SIZE") );
+        } catch (Exception e) {
+            maxSize = 20;
+        }
+        return maxSize;
+    }
+
+    private static int getNumExamples() {
+        int numExamples;
+        try {
+            numExamples = Integer.parseInt( KeyValueSettingsUtilities.getValue("NUM_EXAMPLES") );
+        } catch (Exception e) {
+            numExamples = 1;
+        }
+        return numExamples;
+    }
+
+    private static void runExample(int i, int minSize, int maxSize, int minValue, int maxValue) {
+        int size = RandomNumberUtilities.getRandomIntInRange(minSize, maxSize);
+        int min = RandomNumberUtilities.getRandomIntInRange(minValue, maxValue);
+        int max = RandomNumberUtilities.getRandomIntInRange(min, min + (2 * Math.abs(min)));
 
         System.out.format("%d. size: %d, min: %d, max: %d%n", i, size, min, max);
 
