@@ -19,11 +19,11 @@ in which the maximum value is ***not included*** in the range of eligible values
 
 ## Tools Used
 
-| Tool     |  Version |
-|:---------|---------:|
-| Java     | 24.0.0.0 |
-| IntelliJ | 2025.1.0 |
-| VSCode   |   1.99.0 |
+| Tool     |    Version |
+|:---------|-----------:|
+| Java     |   24.0.1.0 |
+| IntelliJ | 2025.1.1.1 |
+| VSCode   |    1.100.0 |
 
 ## Change History
 
@@ -31,6 +31,7 @@ in which the maximum value is ***not included*** in the range of eligible values
 |:-----------|:-------------------------------------------|
 | 2025-04-17 | Initial creation                           |
 | 2025-04-18 | add instructions on how to use the program |
+| 2025-05-13 | update RandomNumberUtilities               |
 
 ## References
 
