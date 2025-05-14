@@ -32,6 +32,7 @@ in which the maximum value is ***not included*** in the range of eligible values
 | 2025-04-17 | Initial creation                           |
 | 2025-04-18 | add instructions on how to use the program |
 | 2025-05-13 | update RandomNumberUtilities               |
+| 2025-05-14 | update RandomNumberUtilities               |
 
 ## References
 
